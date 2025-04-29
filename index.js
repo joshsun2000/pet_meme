@@ -21,7 +21,7 @@ app.use(express.urlencoded({ extended: true, limit: '10mb' }));
 
 // File uploads static folders
 app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
-app.use('/memes', express.static('memes'));
+app.use('/memes', express.static(path.join(__dirname, 'memes')));
 
 // Routes
 app.use('/api/auth', authRoutes);
