@@ -3,6 +3,7 @@ require('dotenv').config();
 const express = require('express');
 const cors = require('cors');
 const connectDB = require('./config/db');
+const path = require('path');
 
 const authRoutes = require('./routes/authRoutes');
 const memeRoutes = require('./routes/memeRoutes');
@@ -19,7 +20,7 @@ app.use(express.urlencoded({ extended: true, limit: '10mb' }));
 
 
 // File uploads static folders
-app.use('/uploads', express.static('uploads'));
+app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
 app.use('/memes', express.static('memes'));
 
 // Routes

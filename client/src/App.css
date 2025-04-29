@@ -1,38 +1,130 @@
-.App {
-  text-align: center;
+/* Import Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Amatic+SC&family=Oxygen&family=Quicksand:wght@500&display=swap');
+
+/* Global settings */
+body {
+    background-color: #F0ECE2;
+    font-family: 'Oxygen', sans-serif;
+    color: #6D8B74;
+    min-height: 100vh;
+    margin: 0;
+    padding: 0;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+/* Headings (like "PetMeme Generator" main title) */
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Quicksand', sans-serif;
+    color: #6D8B74;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+/* Subtitle (under home page title) */
+.subtitle {
+    font-family: 'Amatic SC', cursive;
+    font-size: 1.5rem;
+    color: #6D8B74;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+/* Standard Button Styling */
+.btn-custom {
+    background-color: #6D8B74;
+    color: #FFFFFF;
+    border: none;
+    border-radius: 50px;
+    padding: 0.5rem 1.5rem;
+    font-family: 'Oxygen', sans-serif;
+    transition: all 0.3s ease;
 }
 
-.App-link {
-  color: #61dafb;
+/* Special Button Styling (Delete, etc.) */
+.btn-special {
+    background-color: #A47164;
+    color: #FFFFFF;
+    border: none;
+    border-radius: 50px;
+    padding: 0.5rem 1.5rem;
+    font-family: 'Oxygen', sans-serif;
+    transition: all 0.3s ease;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+/* Button hover effect: slight darken */
+.btn-custom:hover {
+  background-color: #5c7b64; /* Slightly darker than #6D8B74 */
+}
+
+.btn-special:hover {
+  background-color: #935c54; /* Slightly darker than #A47164 */
+}
+
+/* Card styling for forms */
+.card-custom {
+    background-color: #FFFFFF;
+    border-radius: 20px;
+    padding: 2rem;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+/* Share popout box */
+.share-popout {
+    background-color: #FFFFFF;
+    border: 1px solid #6D8B74;
+    border-radius: 10px;
+    padding: 0.5rem;
+    position: absolute;
+    z-index: 10;
+    display: none;
+    animation: fadeIn 0.3s ease forwards;
+}
+
+/* Popout fade-in animation */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateX(10px); }
+    to { opacity: 1; transform: translateX(0); }
+}
+
+/* Range slider (font size bar) styling */
+input[type=range] {
+    width: 100%;
+    background: transparent;
+}
+
+input[type=range]::-webkit-slider-thumb {
+    appearance: none;
+    height: 20px;
+    width: 20px;
+    background: #6D8B74;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+input[type=range]::-webkit-slider-runnable-track {
+    height: 6px;
+    background: #A8BFA4;
+    border-radius: 3px;
+}
+
+input[type=range]:hover::-webkit-slider-thumb {
+    opacity: 0.8;
+}
+
+/* Input fields */
+input[type="text"],
+input[type="email"],
+input[type="password"],
+textarea {
+    border-radius: 50px;
+    padding: 0.6rem 1rem;
+    border: 1px solid #ccc;
+}
+
+input:focus, textarea:focus {
+    border-color: #6D8B74;
+    box-shadow: 0 0 5px rgba(109, 139, 116, 0.5);
+}
+
+/* For smaller screens: make everything stack neatly */
+@media (max-width: 768px) {
+    .row-flex {
+        flex-direction: column;
+        align-items: center;
+    }
 }

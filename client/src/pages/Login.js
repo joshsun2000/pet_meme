@@ -21,21 +21,46 @@ const Login = () => {
   };
 
   return (
-    <div className="container mt-5">
-      <h1 className="text-center mb-4">Login</h1>
-      <form onSubmit={handleLogin}>
-        <div className="mb-3">
-          <input type="text" className="form-control" placeholder="Username"
-            value={username} onChange={(e) => setUsername(e.target.value)} required />
+    <div className="container d-flex align-items-center justify-content-center" style={{ minHeight: '100vh' }}>
+        <div className="card p-4 shadow rounded-4" style={{ width: '100%', maxWidth: '400px', backgroundColor: '#ffffff' }}>
+            <h2 className="text-center mb-4" style={{ fontFamily: 'Oxygen, sans-serif', color: '#6D8B74' }}>Login</h2>
+
+            {/* Username Input */}
+            <input
+                type="text"
+                className="form-control rounded-pill mb-3"
+                placeholder="Username"
+                value={username}
+                onChange={(e) => setUsername(e.target.value)}
+                style={{ fontFamily: 'Oxygen, sans-serif', padding: '10px 20px' }}
+            />
+
+            {/* Password Input */}
+            <input
+                type="password"
+                className="form-control rounded-pill mb-4"
+                placeholder="Password"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+                style={{ fontFamily: 'Oxygen, sans-serif', padding: '10px 20px' }}
+            />
+
+            {/* Login Button */}
+            <button
+                className="btn btn-custom w-100 rounded-pill"
+                onClick={handleLogin}
+            >
+                Login
+            </button>
+
+            {/* Signup Link */}
+            <div className="text-center mt-3" style={{ fontFamily: 'Oxygen, sans-serif', fontSize: '0.9rem' }}>
+                Don't have an account? <a href="/signup" style={{ color: '#A47164', textDecoration: 'none' }}>Sign up</a>
+            </div>
         </div>
-        <div className="mb-3">
-          <input type="password" className="form-control" placeholder="Password"
-            value={password} onChange={(e) => setPassword(e.target.value)} required />
-        </div>
-        <button type="submit" className="btn btn-primary w-100">Login</button>
-      </form>
     </div>
-  );
+);
+
 };
 
 export default Login;
