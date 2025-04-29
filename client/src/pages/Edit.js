@@ -1,5 +1,6 @@
 import { useState, useRef } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
+import { API_BASE_URL } from '../api';
 
 const Edit = () => {
     const location = useLocation();
@@ -85,7 +86,7 @@ const Edit = () => {
         const loadedImage = new Image();
         loadedImage.crossOrigin = 'anonymous';
 
-        loadedImage.src = `http://localhost:5000/api/proxy?url=${encodeURIComponent(originalImageUrl)}`;
+        loadedImage.src = `${API_BASE_URL}/api/proxy?url=${encodeURIComponent(originalImageUrl)}`;
 
         loadedImage.onload = () => {
             ctx.drawImage(loadedImage, 0, 0, canvas.width, canvas.height);

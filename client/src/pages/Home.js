@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import API from '../api';
+import { API_BASE_URL } from '../api';
 import '../App.css';
 
 const Home = () => {
@@ -21,7 +22,7 @@ const Home = () => {
 
             if (data[0] && data[0].url) {
                 const realDogUrl = data[0].url;
-                const proxyUrl = `http://localhost:5000/api/proxy?url=${encodeURIComponent(realDogUrl)}`;
+                const proxyUrl = `${API_BASE_URL}/api/proxy?url=${encodeURIComponent(realDogUrl)}`;
 
                 // Load the proxy image, resize if necessary
                 const img = new Image();
