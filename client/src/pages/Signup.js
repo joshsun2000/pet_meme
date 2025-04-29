@@ -15,7 +15,7 @@ const Signup = () => {
       return;
     }
     try {
-      const res = await API.post('/auth/signup', { username, password });
+      const res = await API.post('/api/auth/signup', { username, password });
       localStorage.setItem('token', res.data.token);
       alert('Signup successful!');
       navigate('/account');

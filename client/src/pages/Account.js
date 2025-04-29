@@ -17,7 +17,7 @@ const Account = () => {
           return;
         }
 
-        const response = await API.get('/memes/mine', {
+        const response = await API.get('/api/memes/mine', {
           headers: { Authorization: `Bearer ${token}` }
         });
         setUsername(response.data.username);
@@ -64,7 +64,7 @@ const Account = () => {
   const handleDelete = async (memeId) => {
     try {
       const token = localStorage.getItem('token');
-      await API.delete(`/memes/${memeId}`, {
+      await API.delete(`/api/memes/${memeId}`, {
         headers: { Authorization: `Bearer ${token}` }
       });
 

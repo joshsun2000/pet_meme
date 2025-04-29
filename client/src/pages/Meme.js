@@ -61,11 +61,11 @@ const Meme = () => {
                     const formData = new FormData();
                     formData.append('image', imageFile);
     
-                    response = await API.post('/memes/generate/upload', formData, {
+                    response = await API.post('/api/memes/generate/upload', formData, {
                         headers: { 'Content-Type': 'multipart/form-data' }
                     });
                 } else {
-                    response = await API.post('/memes/generate/url', { imageUrl: originalImageUrl });
+                    response = await API.post('/api/memes/generate/url', { imageUrl: originalImageUrl });
                 }
     
                 const { memeUrl: url, caption: cap } = response.data;
@@ -198,7 +198,7 @@ const Meme = () => {
                 return;
             }
     
-            await API.post('/memes/save', {
+            await API.post('/api/memes/save', {
                 memeUrl,
                 caption,
                 originalImageUrl: originalImageUrl || memeUrl,
