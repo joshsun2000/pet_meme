@@ -3,14 +3,14 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
+    "install-client": "cd client && npm install",
+    "build-client": "cd client && npm run build",
+    "build": "npm run install-client && npm run build-client",
     "start": "node server/index.js",
     "server": "nodemon server/index.js",
     "client": "npm start --prefix client",
-    "build": "npm run build --prefix client",
-    "heroku-postbuild": "npm install --prefix client && npm run build --prefix client",
     "dev": "concurrently \"npm run server\" \"npm run client\""
   },
-
   "devDependencies": {
     "concurrently": "^8.2.0",
     "nodemon": "^3.0.2"
